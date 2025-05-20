@@ -16,3 +16,16 @@ class FetchTodoFail extends TodoState {
   final String errorMessage;
   FetchTodoFail(this.errorMessage);
 }
+
+// Add Todo Events
+class AddTodoLoadingState extends TodoState {}
+
+class AddTodoSuccessState extends TodoState {
+  final String message;
+  AddTodoSuccessState({required this.message});
+}
+
+class AddTodoFailState extends TodoState {
+  final String message;
+  AddTodoFailState({required this.message});
+}
