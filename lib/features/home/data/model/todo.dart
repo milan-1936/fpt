@@ -19,7 +19,7 @@ class Todo {
       'id': id,
       'title': title,
       'description': description,
-      'isCompleted': isCompleted,
+      'completed': isCompleted,
     };
   }
 
@@ -28,11 +28,12 @@ class Todo {
       id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
-      isCompleted: map['isCompleted'] as bool,
+      isCompleted: map['completed'] == 1 ? true : false,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Todo.fromJson(String source) => Todo.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Todo.fromJson(String source) =>
+      Todo.fromMap(json.decode(source) as Map<String, dynamic>);
 }

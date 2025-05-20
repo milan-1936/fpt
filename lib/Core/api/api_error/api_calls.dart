@@ -25,4 +25,17 @@ class ApiCalls {
       throw CustomDioException.fromDioError(e);
     }
   }
+
+  sendData({
+    required String endpoint,
+    required Map<String, dynamic> formData,
+  }) async {
+    try {
+      final Dio dio = Dio(BaseOptions(baseUrl: ApiConstants.apiBaseUrl));
+      final response = await dio.post(endpoint, data: formData);
+      return response.data;
+    } on DioException catch (e) {
+      throw CustomDioException.fromDioError(e);
+    }
+  }
 }
