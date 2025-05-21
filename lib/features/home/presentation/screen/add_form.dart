@@ -85,6 +85,8 @@ class _MyFormState extends State<MyForm> {
                               context.read<TodoBloc>().add(
                                 AddTodoEvent(formData: formData),
                               );
+                              context.read<TodoBloc>().add(FetchTodoEvent());
+                              Navigator.of(context).pop();
                             },
                             child: Text("Save"),
                           );
